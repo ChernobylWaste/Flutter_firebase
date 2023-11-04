@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterfirebase/page/homepage.dart';
 import 'package:flutterfirebase/page/signup.dart';
 import 'package:flutterfirebase/reusable_widgets/reusable_widgets.dart';
 import 'package:flutterfirebase/utils/color.dart';
@@ -43,7 +44,10 @@ class _SignInState extends State<SignIn> {
                   SizedBox(
                     height: 20,
                   ),
-                  SignInSignUpButton(context, true, () {}),
+                  SignInSignUpButton(context, true, () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  }),
                   SignUpOption(context),
                   SizedBox(
                     height: 60,
