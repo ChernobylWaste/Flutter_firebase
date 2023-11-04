@@ -14,6 +14,8 @@ class _SignUpState extends State<SignUp> {
   TextEditingController _passwordTextController = TextEditingController();
   TextEditingController _emailTextController = TextEditingController();
   TextEditingController _userNameTextController = TextEditingController();
+  TextEditingController _NIMTextController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +50,15 @@ class _SignUpState extends State<SignUp> {
                 const SizedBox(
                   height: 20,
                 ),
-                reusableTextField("Enter Email Id", Icons.person_outline, false,
+                reusableTextField(
+                    "Enter NIM",
+                    Icons.format_list_numbered_outlined,
+                    false,
+                    _NIMTextController),
+                const SizedBox(
+                  height: 20,
+                ),
+                reusableTextField("Enter Email Id", Icons.mail_outline, false,
                     _emailTextController),
                 const SizedBox(
                   height: 20,
@@ -58,10 +68,15 @@ class _SignUpState extends State<SignUp> {
                 const SizedBox(
                   height: 20,
                 ),
-                SignInSignUpButton(context, false, (){
-                  Navigator.push(context, MaterialPageRoute(builder:(context) => HomePage()));
+                reusableTextField("Confirm Password", Icons.lock_outline, false,
+                    _emailTextController),
+                const SizedBox(
+                  height: 20,
+                ),
+                SignInSignUpButton(context, false, () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HomePage()));
                 })
-          
               ],
             ),
           ),

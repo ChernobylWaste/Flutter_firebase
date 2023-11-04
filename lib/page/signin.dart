@@ -50,7 +50,7 @@ class _SignInState extends State<SignIn> {
                   }),
                   SignUpOption(context),
                   SizedBox(
-                    height: 60,
+                    height: 200,
                   ),
                 ],
               ),
