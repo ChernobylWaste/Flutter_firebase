@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterfirebase/page/signup.dart';
 import 'package:flutterfirebase/reusable_widgets/reusable_widgets.dart';
 import 'package:flutterfirebase/utils/color.dart';
 
@@ -10,6 +11,9 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  TextEditingController _emailTextController = TextEditingController();
+  TextEditingController _passwordTextController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,10 +29,46 @@ class _SignInState extends State<SignIn> {
               padding: EdgeInsets.fromLTRB(
                   20, MediaQuery.of(context).size.height * 0.2, 20, 0),
               child: Column(
-                children: [logoWidget("assets/logo1.png")],
+                children: [
+                  logoWidget("assets/icon.png"),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  reusableTextField("Enter Username", Icons.person_outline,
+                      false, _emailTextController),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  reusableTextField("Enter Password", Icons.lock_outline, true,
+                      _passwordTextController),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  SignInSignUpButton(context, true, () {}),
+                  SignUpOption(context),
+                ],
               ),
             ),
           )),
     );
   }
+}
+
+  Row SignUpOption(BuildContext context) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      const Text("Don't have account?",
+          style: TextStyle(color: Colors.white70)),
+      GestureDetector(
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder:(context) => SignUp()));
+        },
+        child: const Text(
+          " Sign Up",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+      )
+    ],
+  );
 }
