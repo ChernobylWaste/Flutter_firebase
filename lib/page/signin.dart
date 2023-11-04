@@ -26,8 +26,7 @@ class _SignInState extends State<SignIn> {
           ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
           child: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.fromLTRB(
-                  20, MediaQuery.of(context).size.height * 0.2, 20, 0),
+              padding: EdgeInsets.fromLTRB(20, 120, 20, 0),
               child: Column(
                 children: [
                   logoWidget("assets/icon.png"),
@@ -46,6 +45,9 @@ class _SignInState extends State<SignIn> {
                   ),
                   SignInSignUpButton(context, true, () {}),
                   SignUpOption(context),
+                  SizedBox(
+                    height: 60,
+                  ),
                 ],
               ),
             ),
@@ -54,15 +56,17 @@ class _SignInState extends State<SignIn> {
   }
 }
 
-  Row SignUpOption(BuildContext context) {
+Row SignUpOption(BuildContext context) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       const Text("Don't have account?",
-          style: TextStyle(color: Colors.white70)),
+          style: TextStyle(
+              color: Colors.white70, decoration: TextDecoration.none)),
       GestureDetector(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder:(context) => SignUp()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => SignUp()));
         },
         child: const Text(
           " Sign Up",
