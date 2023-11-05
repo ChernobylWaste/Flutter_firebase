@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "303549200903",
+    "project_id": "fluttersignin-23daf",
+    "storage_bucket": "fluttersignin-23daf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:303549200903:android:dd2b85963a146d33f308a2",
+        "android_client_info": {
+          "package_name": "com.example.flutterfirebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYxzxCPhPC_ESYkIFM_58Tg1JoxZTl87A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

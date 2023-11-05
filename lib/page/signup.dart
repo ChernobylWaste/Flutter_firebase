@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfirebase/page/homepage.dart';
 import 'package:flutterfirebase/reusable_widgets/reusable_widgets.dart';
@@ -69,13 +70,22 @@ class _SignUpState extends State<SignUp> {
                   height: 20,
                 ),
                 reusableTextField("Confirm Password", Icons.lock_outline, false,
-                    _emailTextController),
+                    _passwordTextController),
                 const SizedBox(
                   height: 20,
                 ),
                 SignInSignUpButton(context, false, () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomePage()));
+                  FirebaseAuth.instance
+                      .createUserWithEmailAndPassword(
+                          email: _emailTextController.text,
+                          password: _passwordTextController.text)
+                      .then((value) {
+                    print("Account Created");
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  }).onError((error, stackTrace) {
+                    print("Error ${error.toString()}");
+                  });
                 })
               ],
             ),
