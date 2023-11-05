@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterfirebase/page/forgetpw.dart';
 import 'package:flutterfirebase/page/homepage.dart';
 import 'package:flutterfirebase/page/signup.dart';
 import 'package:flutterfirebase/reusable_widgets/reusable_widgets.dart';
@@ -20,6 +21,8 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: [
             hexStringToColor("CB2B93"),
@@ -35,7 +38,7 @@ class _SignInState extends State<SignIn> {
                   SizedBox(
                     height: 20,
                   ),
-                  reusableTextField("Enter Username", Icons.person_outline,
+                  reusableTextField("Enter Email", Icons.person_outline,
                       false, _emailTextController),
                   SizedBox(
                     height: 20,
@@ -59,8 +62,9 @@ class _SignInState extends State<SignIn> {
                   }),
                   SignUpOption(context),
                   SizedBox(
-                    height: 200,
+                    height: 20,
                   ),
+                  ForgotPW(context),
                 ],
               ),
             ),
@@ -83,6 +87,24 @@ Row SignUpOption(BuildContext context) {
         },
         child: const Text(
           " Sign Up",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+      )
+    ],
+  );
+}
+
+Row ForgotPW(BuildContext context) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      GestureDetector(
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => ForgetPW()));
+        },
+        child: const Text(
+          " Forgot Password?",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       )

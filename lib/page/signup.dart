@@ -69,7 +69,7 @@ class _SignUpState extends State<SignUp> {
                 const SizedBox(
                   height: 20,
                 ),
-                reusableTextField("Confirm Password", Icons.lock_outline, false,
+                reusableTextField("Confirm Password", Icons.lock_outline, true,
                     _passwordTextController),
                 const SizedBox(
                   height: 20,
